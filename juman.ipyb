@@ -1,0 +1,122 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # 1. Read the dataset to python environment.
+
+# In[23]:
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+data=pd.read_excel(r'D:\data science\iris.xls')
+print(data)
+
+
+
+# In[24]:
+
+
+data.info()
+
+
+# # 2. Display the columns in the dataset.
+
+# In[25]:
+
+
+data.columns
+
+
+# # 3. Calculate the mean of each column of the datase
+
+# In[26]:
+
+
+data.mean(axis=0)
+
+
+# # 4. Check for the null values present in the dataset
+
+# In[27]:
+
+
+data.isna()
+
+
+# In[28]:
+
+
+data.isna().sum()
+
+
+# # 5. Perform meaningful visualizations using the dataset. Bring at least 3 visualizations 
+# 
+
+# In[29]:
+
+
+plt.figure(figsize=(12,10))
+plt.subplot(4,1,1)
+plt.scatter(data['SL'],data['Classification'],s=15,c='red',marker='*')
+plt.title('PLOT OF SL VS CLASSIFICATION ',fontsize=20)
+plt.xlabel('SL',fontsize=15)
+plt.ylabel('Classification',fontsize=15)
+
+plt.subplot(4,1,2)
+plt.scatter(data['SW'],data['Classification'],s=15,c='blue',marker='*')
+plt.title('PLOT OF SW VS CLASSIFICATION',fontsize=20)
+plt.xlabel('SW',fontsize=15)
+plt.ylabel('Classification',fontsize=15)
+            
+plt.subplot(4,1,3)
+plt.scatter(data['PL'],data['Classification'],s=15,c='green',marker='*')
+plt.title('PLOT OF PL VS CLASSIFICATION',fontsize=20)
+plt.xlabel('PL',fontsize=15)
+plt.ylabel('Classification',fontsize=15)
+            
+plt.subplot(4,1,4)
+plt.scatter(data['PW'],data['Classification'],s=15,c='black',marker='*')
+plt.title('PLOT OF PW VS CLASSIFICATION',fontsize=20)
+plt.xlabel('PW',fontsize=15)
+plt.ylabel('Classification',fontsize=15)
+
+plt.tight_layout()
+
+
+# In[30]:
+
+
+sns.stripplot(y='SL',x='Classification',data=data)
+
+
+# In[31]:
+
+
+sns.swarmplot(y='SL',x='Classification',data=data)
+
+
+# In[32]:
+
+
+sns.violinplot(y='SL',x='Classification',data=data)
+
+
+# In[33]:
+
+
+sns.boxplot(y='SL',x='Classification',data=data)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
